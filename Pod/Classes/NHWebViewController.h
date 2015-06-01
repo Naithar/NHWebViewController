@@ -7,12 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NHWebViewTitleLabel.h"
+#import "NHWebViewTitleView.h"
 
 @interface NHWebViewController : UIViewController
 
 @property (nonatomic, readonly, strong) UIWebView *webView;
-@property (nonatomic, readonly, strong) NHWebViewTitleLabel *titleLabel;
+@property (nonatomic, readonly, strong) NHWebViewTitleView *titleView;
+
+@property (nonatomic, readonly, weak) UIBarButtonItem *backButton;
+@property (nonatomic, readonly, weak) UIBarButtonItem *forwardButton;
+@property (nonatomic, readonly, weak) UIBarButtonItem *updateButton;
+
+- (void)setUrlPath:(NSString*)urlPath;
+- (void)setUrl:(NSURL*)url;
 
 - (void)updateCurrentPage;
 - (void)moveToPreviousPage;

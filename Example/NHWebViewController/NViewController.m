@@ -23,6 +23,7 @@
         NHWebNavigationViewController *navigation = [[NHWebNavigationViewController alloc] init];
         
         [self presentViewController:navigation animated:YES completion:nil];
+        [navigation.webViewController setUrlPath:@"http://google.com"];
     });
 }
 

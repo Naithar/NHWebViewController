@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NHWebViewTitleLabel : UILabel
+@interface NHWebViewTitleView : UIView
 
-@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *titleString;
 @property (nonatomic, copy) NSString *urlString;
 
 @end

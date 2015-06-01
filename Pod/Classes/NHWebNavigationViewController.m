@@ -96,10 +96,7 @@
                          initWithImage:[UIImage imageNamed:@"NHWebView.update"]
                        style:UIBarButtonItemStylePlain
                        target:self
-                       action:@selector(updateToolbarButtonTouch:)];
-    
-    self.updateButton.enabled = NO;
-    
+                       action:@selector(updateToolbarButtonTouch:)];   
 
     [self.webViewController
      setToolbarItems:@[
@@ -120,19 +117,23 @@
 }
 
 - (void)optionsNavigationButtonTouch:(id)sender {
+    __weak __typeof(self) weakSelf = self;
     
+    if ([weakSelf.webDelegate respondsToSelector:@selector(didTouchOptionsButtonInWebController:)]) {
+        [weakSelf.webDelegate didTouchOptionsButtonInWebController:weakSelf];
+    }
 }
 
 - (void)backToolbarButtonTouch:(id)sender {
-    
+    [self.webViewController moveToPreviousPage];
 }
 
 - (void)forwardToolbarButtonTouch:(id)sender {
-    
+    [self.webViewController moveToNextPage];
 }
 
 - (void)updateToolbarButtonTouch:(id)sender {
-    
+    [self.webViewController updateCurrentPage];
 }
 
 - (void)viewDidLoad {
