@@ -110,6 +110,31 @@
     
     [self setViewControllers:@[self.webViewController]];
     
+    [self.navigationBar addSubview:self.webViewController.progressView];
+    [self.webViewController.progressView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.webViewController.progressView
+                                                                   attribute:NSLayoutAttributeLeft
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:self.navigationBar
+                                                                   attribute:NSLayoutAttributeLeft
+                                                                  multiplier:1.0 constant:0]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.webViewController.progressView
+                                                                   attribute:NSLayoutAttributeRight
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:self.navigationBar
+                                                                   attribute:NSLayoutAttributeRight
+                                                                  multiplier:1.0 constant:0]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.webViewController.progressView
+                                                                   attribute:NSLayoutAttributeBottom
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:self.navigationBar
+                                                                   attribute:NSLayoutAttributeBottom
+                                                                  multiplier:1.0 constant:0]];
+    
+    
+    
 }
 
 - (void)closeNavigationButtonTouch:(id)sender {

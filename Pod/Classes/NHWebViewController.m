@@ -8,7 +8,7 @@
 
 #import "NHWebViewController.h"
 
-@interface NHWebViewController ()<UIWebViewDelegate>
+@interface NHWebViewController ()<UIWebViewDelegate, NSURLConnectionDataDelegate>
 
 @property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, strong) NHWebViewTitleView *titleView;
@@ -16,6 +16,13 @@
 @property (nonatomic, weak) UIBarButtonItem *backButton;
 @property (nonatomic, weak) UIBarButtonItem *forwardButton;
 @property (nonatomic, weak) UIBarButtonItem *updateButton;
+
+@property (nonatomic, strong) UIProgressView *progressView;
+
+
+@property (nonatomic, strong) NSHTTPURLResponse *response;
+@property (nonatomic, assign) long long currentProgressSize;
+
 @end
 
 @implementation NHWebViewController
@@ -71,10 +78,13 @@
                                                ? 30 : 42)];
     self.titleView.backgroundColor = [UIColor clearColor];
     self.navigationItem.titleView = self.titleView;
+    
+    self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
+    self.progressView.progress = 0;
+    self.progressView.progressTintColor = [UIColor blueColor];
 }
 
 - (void)viewWillLayoutSubviews {
-    
     self.titleView.frame = CGRectMake(0,
                                       0,
                                       self.view.frame.size.width,
@@ -138,9 +148,11 @@
 
 //MARK: web view delegate
 - (void)webViewDidStartLoad:(UIWebView *)webView {
+    self.progressView.hidden = NO;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    self.progressView.hidden = YES;
     [self.titleView setState:NHWebViewTitleViewStateText];
     self.titleView.titleString = [self webPageTitle];
     self.titleView.urlString = [self webPageUrl];
@@ -148,13 +160,23 @@
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    self.progressView.hidden = YES;
     [self.titleView setState:NHWebViewTitleViewStateFailed];
     [self updateButtonState];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+
+    self.progressView.hidden = NO;
     [self.titleView setState:NHWebViewTitleViewStateLoading];
     self.titleView.urlString = [self webPageUrlForRequest:request];
+    
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    if (!connection) {
+        return YES;
+    }
+    
     return YES;
 }
 
@@ -173,6 +195,44 @@
     return [request.URL.absoluteString.lowercaseString
             stringByTrimmingCharactersInSet:[NSCharacterSet
                                              whitespaceAndNewlineCharacterSet]];
+}
+
+//MARK: URL connection delegate
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    NSLog(@"received");
+    
+    if ([response isKindOfClass:[NSHTTPURLResponse class]]
+        && ((NSHTTPURLResponse*)response).statusCode == 200) {
+        self.response = (NSHTTPURLResponse*)response;
+        self.currentProgressSize = 0;
+        [self updateProgress];
+    }
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    self.currentProgressSize += [data length];
+    
+    [self updateProgress];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    [self.webView.delegate webView:self.webView didFailLoadWithError:error];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    [self.webView.delegate webViewDidFinishLoad:self.webView];
+}
+
+- (void)updateProgress {
+    if (self.response.expectedContentLength
+        && self.response.expectedContentLength != NSURLResponseUnknownLength) {
+        float value = (float)self.currentProgressSize / (float)self.response.expectedContentLength;
+        self.progressView.progress = value;
+    }
+    else {
+        self.progressView.progress = 0;
+    }
 }
 
 - (void)updateButtonState {

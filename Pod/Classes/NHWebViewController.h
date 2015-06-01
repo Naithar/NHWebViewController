@@ -18,6 +18,8 @@
 @property (nonatomic, readonly, weak) UIBarButtonItem *forwardButton;
 @property (nonatomic, readonly, weak) UIBarButtonItem *updateButton;
 
+@property (nonatomic, readonly, strong) UIProgressView *progressView;
+
 - (void)setUrlPath:(NSString*)urlPath;
 - (void)setUrl:(NSURL*)url;
 
