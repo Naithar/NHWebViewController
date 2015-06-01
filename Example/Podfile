@@ -1,0 +1,13 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'NHWebViewController_Example', :exclusive => true do
+  pod "NHWebViewController", :path => "../"
+end
+
+target 'NHWebViewController_Tests', :exclusive => true do
+  pod "NHWebViewController", :path => "../"
+
+  pod 'Specta'
+  pod 'Expecta'
+end
