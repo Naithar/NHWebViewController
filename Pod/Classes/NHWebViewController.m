@@ -138,23 +138,22 @@
 
 //MARK: web view delegate
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-    self.titleView.titleString = [self webPageTitle];
-    self.titleView.urlString = [self webPageUrl];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self.titleView setState:NHWebViewTitleViewStateText];
     self.titleView.titleString = [self webPageTitle];
     self.titleView.urlString = [self webPageUrl];
     [self updateButtonState];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    self.titleView.titleString = [self webPageTitle];
-    self.titleView.urlString = [self webPageUrl];
+    [self.titleView setState:NHWebViewTitleViewStateFailed];
     [self updateButtonState];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    [self.titleView setState:NHWebViewTitleViewStateLoading];
     self.titleView.urlString = [self webPageUrlForRequest:request];
     return YES;
 }
@@ -163,7 +162,7 @@
     NSString *documentTitle = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     return (documentTitle && [documentTitle isKindOfClass:[NSString class]] && [documentTitle length] > 0)
     ? documentTitle
-    : @"...";
+    : @" ";
 }
 
 - (NSString*)webPageUrl {

@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *urlLabel;
+@property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -99,6 +100,25 @@
                                                     multiplier:1.0 constant:0]];
     
     
+    self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self.activityIndicator setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.activityIndicator startAnimating];
+    [self addSubview:self.activityIndicator];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.activityIndicator
+                                                     attribute:NSLayoutAttributeCenterX
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:self.titleLabel
+                                                     attribute:NSLayoutAttributeCenterX
+                                                    multiplier:1.0 constant:0]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.activityIndicator
+                                                     attribute:NSLayoutAttributeCenterY
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:self.titleLabel
+                                                     attribute:NSLayoutAttributeCenterY
+                                                    multiplier:1.0 constant:0]];
+
+    
+    
 }
 
 - (void)setFrame:(CGRect)frame {
@@ -121,6 +141,25 @@
     [self didChangeValueForKey:@"urlString"];
     
     self.urlLabel.text = urlString;
+}
+
+- (void)setState:(NHWebViewTitleViewState)state {
+    switch (state) {
+        case NHWebViewTitleViewStateText:
+            self.activityIndicator.hidden = YES;
+            self.titleLabel.hidden = NO;
+            break;
+        case NHWebViewTitleViewStateFailed:
+            self.activityIndicator.hidden = YES;
+            self.titleLabel.hidden = YES;
+            break;
+        case NHWebViewTitleViewStateLoading:
+            self.activityIndicator.hidden = NO;
+            self.titleLabel.hidden = YES;
+            break;
+        default:
+            break;
+    }
 }
 
 @end
