@@ -19,5 +19,7 @@ typedef NS_ENUM(NSUInteger, NHWebViewTitleViewState) {
 @property (nonatomic, copy) NSString *titleString;
 @property (nonatomic, copy) NSString *urlString;
 
+@property (nonatomic, readonly, assign) NHWebViewTitleViewState currentState;
+
 - (void)setState:(NHWebViewTitleViewState)state;
 @end

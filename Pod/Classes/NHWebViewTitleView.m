@@ -14,6 +14,8 @@
 @property (nonatomic, strong) UILabel *urlLabel;
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 
+@property (nonatomic, assign) NHWebViewTitleViewState currentState;
+
 @end
 
 @implementation NHWebViewTitleView
@@ -160,6 +162,8 @@
         default:
             break;
     }
+    
+    self.currentState = state;
 }
 
 @end

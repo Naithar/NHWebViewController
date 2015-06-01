@@ -70,30 +70,30 @@
     self.webViewController = [[NHWebViewController alloc] init];
     
     self.webViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
-                                                               initWithImage:[UIImage imageNamed:@"NHWebView.close"]
+                                                               initWithImage:[UIImage imageNamed:@"NHWebView.close.png"]
                                                                style:UIBarButtonItemStylePlain
                                                                target:self
                                                                action:@selector(closeNavigationButtonTouch:)];
     self.webViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                                                initWithImage:[UIImage imageNamed:@"NHWebView.options"]
+                                                                initWithImage:[UIImage imageNamed:@"NHWebView.options.png"]
                                                                 style:UIBarButtonItemStylePlain
                                                                 target:self
                                                                 action:@selector(optionsNavigationButtonTouch:)];
     
     self.backButton = [[UIBarButtonItem alloc]
-                       initWithImage:[UIImage imageNamed:@"NHWebView.back"]
+                       initWithImage:[UIImage imageNamed:@"NHWebView.back.png"]
                        style:UIBarButtonItemStylePlain
                        target:self
                        action:@selector(backToolbarButtonTouch:)];
     
     self.forwardButton = [[UIBarButtonItem alloc]
-                          initWithImage:[UIImage imageNamed:@"NHWebView.forward"]
+                          initWithImage:[UIImage imageNamed:@"NHWebView.forward.png"]
                        style:UIBarButtonItemStylePlain
                        target:self
                        action:@selector(forwardToolbarButtonTouch:)];
     
     self.updateButton = [[UIBarButtonItem alloc]
-                         initWithImage:[UIImage imageNamed:@"NHWebView.update"]
+                         initWithImage:[UIImage imageNamed:@"NHWebView.update.png"]
                        style:UIBarButtonItemStylePlain
                        target:self
                        action:@selector(updateToolbarButtonTouch:)];   
@@ -109,32 +109,6 @@
                        self.updateButton]];
     
     [self setViewControllers:@[self.webViewController]];
-    
-    [self.navigationBar addSubview:self.webViewController.progressView];
-    [self.webViewController.progressView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.webViewController.progressView
-                                                                   attribute:NSLayoutAttributeLeft
-                                                                   relatedBy:NSLayoutRelationEqual
-                                                                      toItem:self.navigationBar
-                                                                   attribute:NSLayoutAttributeLeft
-                                                                  multiplier:1.0 constant:0]];
-    
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.webViewController.progressView
-                                                                   attribute:NSLayoutAttributeRight
-                                                                   relatedBy:NSLayoutRelationEqual
-                                                                      toItem:self.navigationBar
-                                                                   attribute:NSLayoutAttributeRight
-                                                                  multiplier:1.0 constant:0]];
-    
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.webViewController.progressView
-                                                                   attribute:NSLayoutAttributeBottom
-                                                                   relatedBy:NSLayoutRelationEqual
-                                                                      toItem:self.navigationBar
-                                                                   attribute:NSLayoutAttributeBottom
-                                                                  multiplier:1.0 constant:0]];
-    
-    
-    
 }
 
 - (void)closeNavigationButtonTouch:(id)sender {

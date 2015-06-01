@@ -82,6 +82,30 @@
     self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
     self.progressView.progress = 0;
     self.progressView.progressTintColor = [UIColor blueColor];
+    
+    
+    [self.view addSubview:self.progressView];
+    [self.progressView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.progressView
+                                                          attribute:NSLayoutAttributeLeft
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeLeft
+                                                         multiplier:1.0 constant:0]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.progressView
+                                                          attribute:NSLayoutAttributeRight
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeRight
+                                                         multiplier:1.0 constant:0]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.progressView
+                                                          attribute:NSLayoutAttributeTop
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeTop
+                                                         multiplier:1.0 constant:0]];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -90,6 +114,9 @@
                                       self.view.frame.size.width,
                                       self.view.frame.size.width > self.view.frame.size.height
                                       ? 30 : 42);
+    
+    [self.titleView setState:self.titleView.currentState];
+    
     [super viewWillLayoutSubviews];
 }
 
@@ -174,7 +201,7 @@
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     if (!connection) {
-        return YES;
+        return NO;
     }
     
     return YES;
@@ -200,8 +227,6 @@
 //MARK: URL connection delegate
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    NSLog(@"received");
-    
     if ([response isKindOfClass:[NSHTTPURLResponse class]]
         && ((NSHTTPURLResponse*)response).statusCode == 200) {
         self.response = (NSHTTPURLResponse*)response;
