@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04E1F97670627EA8F30268A9 /* libPods-NHWebViewController_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B5889DA992B58601F1F3DB /* libPods-NHWebViewController_Example.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -22,8 +23,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		6C6F9D31633351A820B9D097 /* Pods_NHWebViewController_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F068CE594BB814394DFC60 /* Pods_NHWebViewController_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		93B86A8C76AB691C37290A7C /* Pods_NHWebViewController_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 201CACBEE1764FB74FFC1685 /* Pods_NHWebViewController_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		DC76753D880345B412DE8F8B /* libPods-NHWebViewController_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0764144359C358641F9F8B94 /* libPods-NHWebViewController_Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		201CACBEE1764FB74FFC1685 /* Pods_NHWebViewController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NHWebViewController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0764144359C358641F9F8B94 /* libPods-NHWebViewController_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NHWebViewController_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34CB0F2123B5E6FE9F7F6708 /* Pods-NHWebViewController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHWebViewController_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NHWebViewController_Tests/Pods-NHWebViewController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		39F068CE594BB814394DFC60 /* Pods_NHWebViewController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NHWebViewController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B94132B2F2A21CFC5493CC0 /* NHWebViewController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NHWebViewController.podspec; path = ../NHWebViewController.podspec; sourceTree = "<group>"; };
-		6003F58A195388D20070C39A /* NHWebViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = NHWebViewController.app; path = NHWebViewController_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F58A195388D20070C39A /* NHWebViewController_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NHWebViewController_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -56,7 +55,7 @@
 		6003F5A5195388D20070C39A /* NViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NViewController.h; sourceTree = "<group>"; };
 		6003F5A6195388D20070C39A /* NViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6003F5AE195388D20070C39A /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Tests.xctest; path = NHWebViewController_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F5AE195388D20070C39A /* NHWebViewController_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NHWebViewController_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -65,6 +64,7 @@
 		6F06175E4A5A74E229C2E394 /* Pods-NHWebViewController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHWebViewController_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-NHWebViewController_Example/Pods-NHWebViewController_Example.release.xcconfig"; sourceTree = "<group>"; };
 		92B19DF19DB3FFE4F7361A86 /* Pods-NHWebViewController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHWebViewController_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NHWebViewController_Example/Pods-NHWebViewController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A88A4A795B7AE6047FF5B2F4 /* Pods-NHWebViewController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHWebViewController_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NHWebViewController_Tests/Pods-NHWebViewController_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		B0B5889DA992B58601F1F3DB /* libPods-NHWebViewController_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NHWebViewController_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3D867C61C78BC9DA0F2F43 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		EF90A730A057CB12702A07F3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,7 +77,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				93B86A8C76AB691C37290A7C /* Pods_NHWebViewController_Example.framework in Frameworks */,
+				04E1F97670627EA8F30268A9 /* libPods-NHWebViewController_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +88,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				6C6F9D31633351A820B9D097 /* Pods_NHWebViewController_Tests.framework in Frameworks */,
+				DC76753D880345B412DE8F8B /* libPods-NHWebViewController_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,8 +110,8 @@
 		6003F58B195388D20070C39A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6003F58A195388D20070C39A /* NHWebViewController.app */,
-				6003F5AE195388D20070C39A /* Tests.xctest */,
+				6003F58A195388D20070C39A /* NHWebViewController_Example.app */,
+				6003F5AE195388D20070C39A /* NHWebViewController_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,8 +123,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				201CACBEE1764FB74FFC1685 /* Pods_NHWebViewController_Example.framework */,
-				39F068CE594BB814394DFC60 /* Pods_NHWebViewController_Tests.framework */,
+				B0B5889DA992B58601F1F3DB /* libPods-NHWebViewController_Example.a */,
+				0764144359C358641F9F8B94 /* libPods-NHWebViewController_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -207,7 +207,6 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				4FE4BF47F3C6409422304CBF /* Embed Pods Frameworks */,
 				405DFFC7BC7774333311D46D /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -216,7 +215,7 @@
 			);
 			name = NHWebViewController_Example;
 			productName = NHWebViewController;
-			productReference = 6003F58A195388D20070C39A /* NHWebViewController.app */;
+			productReference = 6003F58A195388D20070C39A /* NHWebViewController_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6003F5AD195388D20070C39A /* NHWebViewController_Tests */ = {
@@ -227,7 +226,6 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				347E0AEF382BB8E07DC3A77C /* Embed Pods Frameworks */,
 				815161372804E8490EABD9E2 /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -237,7 +235,7 @@
 			);
 			name = NHWebViewController_Tests;
 			productName = NHWebViewControllerTests;
-			productReference = 6003F5AE195388D20070C39A /* Tests.xctest */;
+			productReference = 6003F5AE195388D20070C39A /* NHWebViewController_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -297,21 +295,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		347E0AEF382BB8E07DC3A77C /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NHWebViewController_Tests/Pods-NHWebViewController_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		405DFFC7BC7774333311D46D /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -325,21 +308,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NHWebViewController_Example/Pods-NHWebViewController_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4FE4BF47F3C6409422304CBF /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NHWebViewController_Example/Pods-NHWebViewController_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		68D81063DCF189579618F8DA /* Check Pods Manifest.lock */ = {
