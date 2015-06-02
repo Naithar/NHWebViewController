@@ -164,7 +164,7 @@
 }
 
 - (void)openInSafari {
-    NSURL *url = [NSURL URLWithString:self.webView.request.URL.absoluteString];
+    NSURL *url = [NSURL URLWithString:self.lastUrl.absoluteString];
     
     if ([[UIApplication sharedApplication] canOpenURL:url]) {
         [[UIApplication sharedApplication] openURL:url];
@@ -172,7 +172,7 @@
 }
 
 - (void)copyLink {
-    [[UIPasteboard generalPasteboard] setString:self.webView.request.URL.absoluteString];
+    [[UIPasteboard generalPasteboard] setString:self.lastUrl.absoluteString];
 }
 
 
