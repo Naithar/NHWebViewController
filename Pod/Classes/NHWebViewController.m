@@ -19,6 +19,7 @@
 
 @property (nonatomic, strong) UIProgressView *progressView;
 
+@property (nonatomic, strong) NSURL *lastUrl;
 
 @property (nonatomic, strong) NSHTTPURLResponse *response;
 @property (nonatomic, assign) long long currentProgressSize;
@@ -146,6 +147,8 @@
 }
 
 - (void)updateCurrentPage {
+    NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:self.lastUrl];
+    [self.webView loadRequest:urlRequest];
 }
 
 - (void)moveToPreviousPage {
@@ -193,8 +196,10 @@
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-
+    
     self.progressView.hidden = NO;
+    self.lastUrl = request.URL;
+    
     [self.titleView setState:NHWebViewTitleViewStateLoading];
     self.titleView.urlString = [self webPageUrlForRequest:request];
     
@@ -215,7 +220,9 @@
 }
 
 - (NSString*)webPageUrl {
-    return [self webPageUrlForRequest:self.webView.request];
+    return [self.lastUrl.absoluteString.lowercaseString
+            stringByTrimmingCharactersInSet:[NSCharacterSet
+                                             whitespaceAndNewlineCharacterSet]];
 }
 
 - (NSString*)webPageUrlForRequest:(NSURLRequest*)request {
