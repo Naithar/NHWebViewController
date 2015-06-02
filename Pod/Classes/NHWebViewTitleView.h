@@ -16,9 +16,6 @@ typedef NS_ENUM(NSUInteger, NHWebViewTitleViewState) {
 
 @interface NHWebViewTitleView : UIView
 
-@property (nonatomic, copy) NSString *titleString;
-@property (nonatomic, copy) NSString *urlString;
-
 @property (nonatomic, readonly, strong) UILabel *titleLabel;
 @property (nonatomic, readonly, strong) UILabel *urlLabel;
 

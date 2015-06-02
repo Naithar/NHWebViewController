@@ -184,8 +184,8 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     self.progressView.hidden = YES;
     [self.titleView setState:NHWebViewTitleViewStateText];
-    self.titleView.titleString = [self webPageTitle];
-    self.titleView.urlString = [self webPageUrl];
+    self.titleView.titleLabel.text = [self webPageTitle];
+    self.titleView.urlLabel.text = [self webPageUrl];
     [self updateButtonState];
 }
 
@@ -201,7 +201,7 @@
     self.lastUrl = request.URL;
     
     [self.titleView setState:NHWebViewTitleViewStateLoading];
-    self.titleView.urlString = [self webPageUrlForRequest:request];
+    self.titleView.urlLabel.text = [self webPageUrlForRequest:request];
     
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     

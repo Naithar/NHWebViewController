@@ -129,22 +129,6 @@
     self.urlLabel.hidden = frame.size.height < 35;
 }
 
-- (void)setTitleString:(NSString *)titleString {
-    [self willChangeValueForKey:@"titleString"];
-    _titleString = titleString;
-    [self didChangeValueForKey:@"titleString"];
-    
-    self.titleLabel.text = titleString;
-}
-
-- (void)setUrlString:(NSString *)urlString {
-    [self willChangeValueForKey:@"urlString"];
-    _urlString = urlString;
-    [self didChangeValueForKey:@"urlString"];
-    
-    self.urlLabel.text = urlString;
-}
-
 - (void)setState:(NHWebViewTitleViewState)state {
     switch (state) {
         case NHWebViewTitleViewStateText:
