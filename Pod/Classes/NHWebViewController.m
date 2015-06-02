@@ -197,6 +197,10 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
+    if ([request.URL.absoluteString isEqualToString:@"about:blank"]) {
+        return NO;
+    }
+    
     self.progressView.hidden = NO;
     self.lastUrl = request.URL;
     
