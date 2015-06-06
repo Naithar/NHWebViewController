@@ -40,6 +40,7 @@
 
 - (void)commonInit {
     self.webView = [[UIWebView alloc] init];
+    self.webView.scalesPageToFit = YES;
     [self.webView setTranslatesAutoresizingMaskIntoConstraints:NO];
     self.webView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.webView.delegate = self;
