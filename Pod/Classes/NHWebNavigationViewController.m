@@ -8,6 +8,11 @@
 
 #import "NHWebNavigationViewController.h"
 
+#define image(name) \
+[[UIImage alloc] initWithContentsOfFile: \
+[[NSBundle bundleForClass:[NHWebNavigationViewController class]]\
+pathForResource:name ofType:@"png"]]
+
 @interface NHWebNavigationViewController ()
 
 @property (nonatomic, strong) NHWebViewController *webViewController;
@@ -70,30 +75,30 @@
     self.webViewController = [[NHWebViewController alloc] init];
     
     self.webViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
-                                                               initWithImage:[UIImage imageNamed:@"NHWebView.close.png"]
+                                                               initWithImage:image(@"NHWebView.close")
                                                                style:UIBarButtonItemStylePlain
                                                                target:self
                                                                action:@selector(closeNavigationButtonTouch:)];
     self.webViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                                                initWithImage:[UIImage imageNamed:@"NHWebView.options.png"]
+                                                                initWithImage:image(@"NHWebView.options")
                                                                 style:UIBarButtonItemStylePlain
                                                                 target:self
                                                                 action:@selector(optionsNavigationButtonTouch:)];
     
     self.backButton = [[UIBarButtonItem alloc]
-                       initWithImage:[UIImage imageNamed:@"NHWebView.back.png"]
+                       initWithImage:image(@"NHWebView.back")
                        style:UIBarButtonItemStylePlain
                        target:self
                        action:@selector(backToolbarButtonTouch:)];
     
     self.forwardButton = [[UIBarButtonItem alloc]
-                          initWithImage:[UIImage imageNamed:@"NHWebView.forward.png"]
+                          initWithImage:image(@"NHWebView.forward")
                        style:UIBarButtonItemStylePlain
                        target:self
                        action:@selector(forwardToolbarButtonTouch:)];
     
     self.updateButton = [[UIBarButtonItem alloc]
-                         initWithImage:[UIImage imageNamed:@"NHWebView.update.png"]
+                         initWithImage:image(@"NHWebView.update")
                        style:UIBarButtonItemStylePlain
                        target:self
                        action:@selector(updateToolbarButtonTouch:)];   
