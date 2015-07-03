@@ -9,7 +9,7 @@
 #import "NHWebNavigationViewController.h"
 
 #define image(name) \
-[[UIImage alloc] initWithContentsOfFile: \
+[UIImage imageWithContentsOfFile: \
 [[NSBundle bundleForClass:[NHWebNavigationViewController class]]\
 pathForResource:name ofType:@"png"]]
 
